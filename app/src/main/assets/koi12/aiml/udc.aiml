@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <template>
+    <random>
+             <li>You have Alzheimer.You struggle with short term memory loss</li>
+             <li>Note from your loved ones:
+             <get name = "desp"></get></li>
+             <li>I am your memory assistant.How can i hell you?</li>
+             <li>i dont have an answer.</li>
+          </random>
+    </template>
+  </category>
+</aiml>
