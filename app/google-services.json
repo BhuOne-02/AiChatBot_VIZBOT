@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "433355597306",
+    "project_id": "vizbot-57470",
+    "storage_bucket": "vizbot-57470.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433355597306:android:5b5c6ea51087191eedf043",
+        "android_client_info": {
+          "package_name": "com.example.vizbot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433355597306-m9fcbllmdci4dimvt66un2l94rjai1rl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vizbot",
+            "certificate_hash": "c5b6fed7a0c2d7ba71a457f548cd7bfc9285bed6"
+          }
+        },
+        {
+          "client_id": "433355597306-f5mfo3ecd173begcpnpopa8r6q7r506n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuFaK-9iq-SRQXbfZDqpN0i6OMGAIRqyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433355597306-f5mfo3ecd173begcpnpopa8r6q7r506n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

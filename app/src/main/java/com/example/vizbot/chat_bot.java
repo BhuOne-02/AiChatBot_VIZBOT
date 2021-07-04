@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.alicebot.ab.AIMLProcessor;
 import org.alicebot.ab.Bot;
@@ -111,6 +112,37 @@ public class chat_bot extends AppCompatActivity {
                     mapIntent.setPackage("com.google.android.apps.maps");
                     startActivity(mapIntent);
                 }
+                if(response.equals("calling "+rl1_name)){
+                    Intent myDialIntent = new Intent(Intent.ACTION_DIAL);
+                    myDialIntent.setData(Uri.parse("tel:"+rl1_num));
+                    startActivity(myDialIntent);
+                }
+                if(response.equals("calling "+rl2_name)){
+                    Intent myDialIntent = new Intent(Intent.ACTION_DIAL);
+                    myDialIntent.setData(Uri.parse("tel:"+rl2_num));
+                    startActivity(myDialIntent);
+                }
+                if(response.equals("calling "+rl3_name)){
+                    Intent myDialIntent = new Intent(Intent.ACTION_DIAL);
+                    myDialIntent.setData(Uri.parse("tel:"+rl3_num));
+                    startActivity(myDialIntent);
+                }
+                if(response.equals("calling doctor")){
+                    Intent myDialIntent = new Intent(Intent.ACTION_DIAL);
+                    myDialIntent.setData(Uri.parse("tel:"+docphone));
+                    startActivity(myDialIntent);
+                }
+                if(response.equals("calling police")){
+                    Intent myDialIntent = new Intent(Intent.ACTION_DIAL);
+                    myDialIntent.setData(Uri.parse("tel:"+"100"));
+                    startActivity(myDialIntent);
+                }
+                if(response.equals("calling ambulance")){
+                    Intent myDialIntent = new Intent(Intent.ACTION_DIAL);
+                    myDialIntent.setData(Uri.parse("tel:"+"108"));
+                    startActivity(myDialIntent);
+                }
+                FirebaseDatabase.getInstance().getReference().child(message).setValue(response);
                 sendMessage(message);
                 mimicOtherMessage(response);
                 mEditTextMessage.setText("");
@@ -146,21 +178,21 @@ public class chat_bot extends AppCompatActivity {
     private void custom() {
         boolean a = isSDCARDAvailable();
         AssetManager assets = getResources().getAssets();
-        File jayDir = new File(Environment.getExternalStorageDirectory().toString() + "/koi12/bots/koi12");
+        File jayDir = new File(Environment.getExternalStorageDirectory().toString() + "/koi13/bots/koi13");
         boolean b = jayDir.mkdirs();
         if (jayDir.exists()) {
             try {
-                for (String dir : assets.list("koi12")) {
+                for (String dir : assets.list("koi13")) {
                     File subdir = new File(jayDir.getPath() + "/" + dir);
                     boolean subdir_check = subdir.mkdirs();
-                    for (String file : assets.list("koi12/" + dir)) {
+                    for (String file : assets.list("koi13/" + dir)) {
                         File f = new File(jayDir.getPath() + "/" + dir + "/" + file);
                         if (f.exists()) {
                             continue;
                         }
                         InputStream in = null;
                         OutputStream out = null;
-                        in = assets.open("koi12/" + dir + "/" + file);
+                        in = assets.open("koi13/" + dir + "/" + file);
                         out = new FileOutputStream(jayDir.getPath() + "/" + dir + "/" + file);
                         copyFile(in, out);
                         in.close();
@@ -174,9 +206,9 @@ public class chat_bot extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        MagicStrings.root_path = Environment.getExternalStorageDirectory().toString() + "/koi12";
+        MagicStrings.root_path = Environment.getExternalStorageDirectory().toString() + "/koi13";
         AIMLProcessor.extension =  new PCAIMLProcessorExtension();
-        bot = new Bot("koi12", MagicStrings.root_path, "chat");
+        bot = new Bot("koi13", MagicStrings.root_path, "chat");
         chat = new Chat(bot);
         String[] args = null;
         mainFunction(args);

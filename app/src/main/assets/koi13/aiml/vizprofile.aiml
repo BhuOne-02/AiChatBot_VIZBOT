@@ -189,7 +189,7 @@
 </category>
 
 <category>
-   <pattern>add *</pattern>
+   <pattern>add */pattern>
      <template>
         <think>
             <set name = "add"><star index = "1"/></set>
@@ -716,6 +716,11 @@
     </template>
 </category>
 
+<category>
+   <pattern>call *</pattern>
+   <template>calling <star index = "1"/></template>
+</category>
+
 
 <category>
    <pattern>BYE</pattern>
@@ -741,5 +746,7 @@
                   <srai>BYE</srai>
                </template>
             </category>
+
+
 
 </aiml>

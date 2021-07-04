@@ -11,26 +11,32 @@ public class ChatMessage {
     }
 
     public String getContent() {
+
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(String content)
+    {
         this.content = content;
     }
 
     public boolean isMine() {
+
         return isMine;
     }
 
     public void setIsMine(boolean isMine) {
+
         this.isMine = isMine;
     }
 
     public boolean isImage() {
+
         return isImage;
     }
 
     public void setIsImage(boolean isImage) {
+
         this.isImage = isImage;
     }
 }

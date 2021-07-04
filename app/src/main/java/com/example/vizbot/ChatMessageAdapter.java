@@ -17,16 +17,20 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
     }
     @Override
     public int getViewTypeCount() {
-        // my message, other message, my image, other image
         return 4;
     }
     @Override
     public int getItemViewType(int position) {
         ChatMessage item = getItem(position);
-        if (item.isMine() && !item.isImage()) return MY_MESSAGE;
-        else if (!item.isMine() && !item.isImage()) return OTHER_MESSAGE;
-        else if (item.isMine() && item.isImage()) return MY_IMAGE;
-        else return OTHER_IMAGE;
+
+        if (item.isMine() && !item.isImage())
+            return MY_MESSAGE;
+        else if (!item.isMine() && !item.isImage())
+            return OTHER_MESSAGE;
+        else if (item.isMine() && item.isImage())
+            return MY_IMAGE;
+        else
+            return OTHER_IMAGE;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -39,10 +43,6 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.other, parent, false);
             TextView textView = (TextView) convertView.findViewById(R.id.text);
             textView.setText(getItem(position).getContent());
-        } else if (viewType == MY_IMAGE) {
-            //convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_image, parent, false);
-        } else {
-            // convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_other_image, parent, false);
         }
         convertView.findViewById(R.id.chatMessageView).setOnClickListener(new View.OnClickListener() {
             @Override
